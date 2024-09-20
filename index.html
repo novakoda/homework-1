@@ -1,0 +1,143 @@
+<!--
+    Program name: patient-form.html
+    Author: James Williams
+    Date created: 9/16/24
+    Date last edited: 9/xx/24
+    Version: 1.6
+    Description: A patient signup form for Kelsey-Seybold Clinic
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <script src="scripts.js"></script>
+    <title>Registration Form</title>
+</head>
+<body>
+    <div id="header">
+        <h1>Welcome to Kelsey-Seybold</h1>
+        <p id="header-date"></p>
+    </div>
+    <form action="homework1-thankyou.html" method="post">
+        <table>
+            <tr>
+                <td>First Name:</td>
+                <td colspan="2"><input type="text" name="firstName" maxlength="30"></td>
+                <td>Middle Initial:</td>
+                <td><input type="text" name="middleInitial" maxlength="1"></td>
+            </tr>
+            <tr id="last">
+                <td>Last Name:</td>
+                <td colspan="2"><input type="text" name="lastName" maxlength="30"></td>
+            </tr>
+            <tr>
+                <td class="dob">Date of Birth:</td>
+                <td colspan="2" class="dob"><input type="text" name="dob" placeholder="MM/DD/YYYY"></td>
+            </tr>
+            <tr>
+                <td>Social Security:</td>
+                <td colspan="2"><input type="password" name="ssn" maxlength="11" placeholder="XXX-XX-XXXX"></td>
+            </tr>
+            <tr>
+                <td>Address Line 1:</td>
+                <td colspan="2"><input type="text" name="address1" maxlength="30"></td>
+            </tr>
+            <tr>
+                <td>Address Line 2:</td>
+                <td colspan="2"><input type="text" name="address2" maxlength="30"></td>
+            </tr>
+            <tr>
+                <td>City:</td>
+                <td><input type="text" name="city" maxlength="30"></td>
+                <td>State:</td>
+                <td>
+                    <select name="state">
+                        <option value="">Select State</option>
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+
+                        <option value="PR">Puerto Rico</option>
+                    </select>
+                </td>
+                <td>Zip Code:</td>
+                <td><input type="text" name="zip" maxlength="10"></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td colspan="5"><input type="email" name="email" placeholder="name@domain.tld"></td>
+            </tr>
+            <tr>
+                <td>Describe your current symptoms:</td>
+                <td colspan="5"><textarea name="symptoms" rows="3" cols="50"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="6">Check all of the following that apply:</td>
+            </tr>
+            <tr>
+                <td colspan="6">
+                    <input type="checkbox" name="conditions" value="Chicken Pox"> Chicken Pox
+                    <input type="checkbox" name="conditions" value="Measles"> Measles
+                    <input type="checkbox" name="conditions" value="Covid-19"> Covid-19
+                    <input type="checkbox" name="conditions" value="Small Pox"> Small Pox
+                    <input type="checkbox" name="conditions" value="Tetanus"> Tetanus
+                </td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td id="genders">
+                    <input class="gender" type="radio" name="gender" value="Male">Male
+                    <input class="gender" type="radio" name="gender" value="Female">Female
+                    <input class="gender" type="radio" name="gender" value="Other">Other
+                </td>
+            </tr>
+            <tr>
+                <td>Have you been vaccinated?</td>
+                <td>
+                    <input type="radio" name="vaccinated" value="Yes"> Yes
+                    <input type="radio" name="vaccinated" value="No"> No
+                </td>
+            </tr>
+            <tr>
+                <td>Do you have insurance?</td>
+                <td>
+                    <input type="radio" name="insurance" value="Yes"> Yes
+                    <input type="radio" name="insurance" value="No"> No
+                </td>
+            </tr>
+            <tr>
+                <td>On a scale of 1 to 10, how is your health?</td>
+                <td colspan="5"><input type="range" name="health" min="1" max="10"></td>
+            </tr>
+            <tr>
+                <td>Desired User ID:</td>
+                <td colspan="5"><input type="text" name="userID" maxlength="20"></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td colspan="5"><input type="password" name="password"></td>
+            </tr>
+            <tr>
+                <td>Re-enter Password:</td>
+                <td colspan="5"><input type="password" name="repassword"></td>
+            </tr>
+            <tr>
+                <td colspan="3"><button type="reset">CLEAR AND START OVER</button></td>
+                <td colspan="3"><button type="submit">Submit</button></td>
+            </tr>
+        </table>
+    </form>
+
+    <footer>
+        <p> Kelsey-Seybold Clinic | 2515 Business Center Dr, Pearland, TX 77584</p>
+        <button onclick="window.location.href='#';">Contact Us</button>
+        <p>Follow us on
+            <a href="https://facebook.com" target="_blank">Facebook</a>,
+            <a href="https://twitter.com" target="_blank">Twitter</a>
+        </p>
+    </footer>
+</body>
+</html>
