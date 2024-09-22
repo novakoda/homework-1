@@ -12,8 +12,13 @@ body {
 #header {
     font-family: 'Verdana', Tahoma, sans-serif;
     text-align: center;
-    color: #0056b3;
+    color: #3d98b3;
     margin: 20px 0;
+}
+
+#logo {
+    width: 50px;
+    height: 50px;
 }
 
 form {
@@ -83,7 +88,7 @@ input[type="range"] {
 }
 
 button {
-    background-color: #007bff;
+    background-color: #3d98b3;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -94,7 +99,7 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #2e7186;
 }
 
 button[type="reset"] {
@@ -106,7 +111,7 @@ button[type="reset"]:hover {
 }
 
 footer {
-    background-color: #007bff;
+    background-color: #3d98b3;
     color: white;
     text-align: center;
     padding: 20px;
@@ -116,7 +121,7 @@ footer {
 
 footer button {
     background-color: #fff;
-    color: #007bff;
+    color: #3d98b3;
     padding: 10px 20px;
     border: 2px solid #fff;
     border-radius: 5px;
@@ -126,7 +131,7 @@ footer button {
 
 footer button:hover {
     background-color: #f1f1f1;
-    color: #007bff;
+    color: #3d98b3;
 }
 
 footer p, footer a {
