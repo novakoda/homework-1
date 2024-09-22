@@ -10,8 +10,9 @@ body {
 }
 
 #header {
+    font-family: 'Verdana', Tahoma, sans-serif;
     text-align: center;
-    color: #333;
+    color: #0056b3;
     margin: 20px 0;
 }
 

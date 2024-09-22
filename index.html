@@ -1,8 +1,8 @@
 <!--
-    Program name: patient-form.html
+    Program name: index.html
     Author: James Williams
     Date created: 9/16/24
-    Date last edited: 9/xx/24
+    Date last edited: 9/21/24
     Version: 1.6
     Description: A patient signup form for Kelsey-Seybold Clinic
 -->
@@ -21,7 +21,7 @@
         <h1>Welcome to Kelsey-Seybold</h1>
         <p id="header-date"></p>
     </div>
-    <form action="homework1-thankyou.html" method="post">
+    <form action="homework1-thankyou.html" method="post" onsubmit="return validateForm()">
         <table>
             <tr>
                 <td>First Name:</td>
@@ -117,7 +117,7 @@
             </tr>
             <tr>
                 <td>Email:</td>
-                <td colspan="5"><input type="email" name="email" placeholder="name@domain.tld"></td>
+                <td colspan="5"><input type="email" id="email" name="email" placeholder="name@domain.tld"></td>
             </tr>
             <tr>
                 <td>Describe your current symptoms:</td>
