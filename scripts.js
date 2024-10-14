@@ -1,3 +1,10 @@
+// Program name: index.html
+// Author: James Williams
+// Date created: 9/16/24
+// Date last edited: 9/21/24
+// Version: 1.7
+// Description: A patient signup form for Kelsey-Seybold Clinic
+
 function updateHeaderWithDate() {
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const today = new Date();
