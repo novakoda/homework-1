@@ -3,7 +3,7 @@
     Author: James Williams
     Date created: 9/16/24
     Date last edited: 9/21/24
-    Version: 1.7
+    Version: 1.8
     Description: A patient signup form for Kelsey-Seybold Clinic
 -->
 
@@ -26,21 +26,17 @@
         <table>
             <tr>
                 <td>First Name:</td>
-                <td colspan="2"><input type="text" name="firstName" maxlength="30"></td>
+                <td colspan="2"><input type="text" name="firstName" maxlength="30" pattern="[A-Za-z'-]+" title="Enter 1 to 30 characters. Letters, apostrophes, and dashes only." required></td>
                 <td>Middle Initial:</td>
-                <td><input type="text" name="middleInitial" maxlength="1"></td>
+                <td><input type="text" name="middleInitial" maxlength="1" pattern="[A-Za-z]" title="Enter a single letter (optional)"></td>
             </tr>
             <tr id="last">
                 <td>Last Name:</td>
-                <td colspan="2"><input type="text" name="lastName" maxlength="30"></td>
+                <td colspan="2"><input type="text" name="lastName" maxlength="30" pattern="[A-Za-z'-2-5]+" title="Enter 1 to 30 characters. Letters, apostrophes, numbers 2 to 5, and dashes only." required></td>
             </tr>
             <tr>
                 <td class="dob">Date of Birth:</td>
-                <td colspan="2" class="dob"><input type="text" name="dob" placeholder="MM/DD/YYYY"></td>
-            </tr>
-            <tr>
-                <td>Social Security:</td>
-                <td colspan="2"><input type="password" name="ssn" maxlength="11" placeholder="XXX-XX-XXXX"></td>
+                <td colspan="2" class="dob"><input type="text" name="dob" placeholder="MM/DD/YYYY" pattern="\d{2}/\d{2}/\d{4}" title="Enter date in MM/DD/YYYY format" required onchange="validateDOB(this)"></td>
             </tr>
             <tr>
                 <td>Address Line 1:</td>
@@ -114,11 +110,15 @@
                     </select>
                 </td>
                 <td>Zip Code:</td>
-                <td><input type="text" name="zip" maxlength="10"></td>
+                <td><input type="text" name="zip" maxlength="10" pattern="^\d{5}(-\d{4})?$" title="Enter a 5-digit zip code, or 9-digit zip+4" required></td>
             </tr>
             <tr>
                 <td>Email:</td>
-                <td colspan="5"><input type="email" id="email" name="email" placeholder="name@domain.tld"></td>
+                <td colspan="5"><input type="email" id="email" name="email" placeholder="name@domain.tld" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Enter a valid email address" required></td>
+            </tr>
+            <tr>
+                <td>Phone Number:</td>
+                <td colspan="5"><input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Enter phone number in 000-000-0000 format" required></td>
             </tr>
             <tr>
                 <td>Describe your current symptoms:</td>
@@ -164,21 +164,35 @@
             </tr>
             <tr>
                 <td>Desired User ID:</td>
-                <td colspan="5"><input type="text" name="userID" maxlength="20"></td>
+                <td colspan="5"><input type="text" name="userID" maxlength="30" pattern="^[a-zA-Z][a-zA-Z0-9_-]{4,29}$" title="5 to 30 characters. Start with a letter. Only letters, numbers, underscores & dashes allowed. No spaces." required></td>
             </tr>
             <tr>
                 <td>Password:</td>
-                <td colspan="5"><input type="password" name="password"></td>
+                <td colspan="5"><input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=\[\]{};:'\\|,.<>/?]).{8,30}" title="8-30 characters. Include at least one uppercase letter, one lowercase letter, one number, and one special character." required></td>
             </tr>
             <tr>
                 <td>Re-enter Password:</td>
-                <td colspan="5"><input type="password" name="repassword"></td>
+                <td colspan="5"><input type="password" name="repassword" title="Re-enter your password" required></td>
             </tr>
             <tr>
-                <td colspan="3"><button type="reset">CLEAR</button></td>
-                <td colspan="3"><button type="submit">SUBMIT</button></td>
+                <td>Desired Salary:</td>
+                <td colspan="5">
+                    <input type="range" id="salarySlider" name="salary" min="20000" max="200000" step="1000">
+                    <span id="salaryValue"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="reset">CLEAR</button></td>
+                <td colspan="2"><button type="button" onclick="reviewForm()">REVIEW</button></td>
+                <td colspan="2"><button type="submit">SUBMIT</button></td>
             </tr>
         </table>
+        <div id="reviewArea" style="display: none;">
+            <h2>Please Review This Information</h2>
+            <div id="reviewContent"></div>
+            <button onclick="submitForm()">SUBMIT</button>
+            <button onclick="startOver()">START OVER</button>
+        </div>
     </form>
 
     <footer>
